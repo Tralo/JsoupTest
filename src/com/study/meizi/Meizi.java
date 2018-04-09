@@ -3,7 +3,9 @@ package com.study.meizi;
 import java.io.IOException;
 import java.lang.invoke.VolatileCallSite;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -18,9 +20,8 @@ import org.jsoup.select.Elements;
 public class Meizi {
 
 	
-	
 	public static void main(String[] args) {
-		int page = 44;
+		int page = 99;
 		String url = "http://www.mzitu.com/page/" + page;
 		AtomicInteger count = new AtomicInteger(0);
 		
@@ -31,6 +32,8 @@ public class Meizi {
 
 			@Override
 			public void notifyToExit() {
+				fixedThreadPool.shutdown();
+				System.out.println("³ÌÐò½áÊø!!!!!");
 				System.exit(0);
 			}
 		};
