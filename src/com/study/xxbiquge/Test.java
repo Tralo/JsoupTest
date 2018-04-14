@@ -101,7 +101,7 @@ public class Test {
 		try {
 			Document doc = Jsoup.connect(url).headers(header).timeout(10000).get();
 			
-			Element targetEl = doc.select("div.result-game-item-detail").get(0);
+			Element targetEl = doc.select("div.result-game-item-detail").get(4);
 			targetUrl = targetEl.select("a.result-game-item-title-link").attr("href");
 			targetTitle = targetEl.select("a.result-game-item-title-link").select("span").text();
 			System.out.println(targetUrl);
